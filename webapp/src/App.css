@@ -1,0 +1,416 @@
+.dashboard {
+  width: min(100%, 1180px);
+  min-height: 100svh;
+  margin-inline: auto;
+  padding: 24px 28px 40px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.summary h1,
+.summary p,
+.hint,
+.chart text {
+  font-family: var(--mono);
+  font-weight: 500;
+}
+
+.summary h1 {
+  margin: 0 0 4px;
+  color: var(--white);
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+}
+
+.summary p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  letter-spacing: 0.04em;
+}
+
+.beverage-picker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 14px;
+}
+
+.beverage-picker label {
+  color: var(--white);
+}
+
+.beverage-picker select {
+  min-width: 110px;
+  padding: 6px 10px;
+  border: 1px solid #454545;
+  border-radius: 2px;
+  color: var(--white);
+  background: #151515;
+  font: inherit;
+  cursor: pointer;
+}
+
+.beverage-picker select:focus-visible {
+  outline: 1px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.beverage-setting {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.beverage-setting label {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.beverage-setting select {
+  min-width: 58px;
+}
+
+.beverage-setting input {
+  width: 76px;
+  padding: 6px 8px;
+  border: 1px solid #454545;
+  border-radius: 2px;
+  color: var(--white);
+  background: #151515;
+  font: inherit;
+}
+
+.beverage-setting input:focus-visible {
+  outline: 1px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.beverage-dose {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.beverage-legend {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend-swatch {
+  width: 10px;
+  height: 10px;
+  border: 1.5px solid #f0f0f0;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.legend-swatch[data-beverage='coffee'] {
+  background: #080808;
+}
+
+.legend-swatch[data-beverage='mate'] {
+  background: #49a866;
+}
+
+.legend-swatch[data-beverage='tea'] {
+  background: #a66b3d;
+}
+
+.summary p > .summary-separator {
+  padding-inline: 4px;
+  color: #555;
+}
+
+.half-life-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+  color: var(--muted);
+}
+
+.half-life-control select {
+  min-width: 44px;
+  padding: 2px 4px;
+  border: 1px solid #454545;
+  border-radius: 2px;
+  color: var(--white);
+  background: #151515;
+  font: inherit;
+  cursor: pointer;
+}
+
+.half-life-control select:focus-visible {
+  outline: 1px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.half-life-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+}
+
+.timeline {
+  width: 100%;
+  margin: auto 0 0;
+}
+
+.chart {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  touch-action: manipulation;
+}
+
+.background-dots circle {
+  fill: #252525;
+  opacity: 0.6;
+}
+
+.reference-line {
+  stroke: #343434;
+  stroke-width: 1;
+  stroke-dasharray: 4 7;
+}
+
+.reference-label {
+  fill: #7a7a7a;
+  font-size: 16px;
+}
+
+.annotation line {
+  stroke: #666;
+  stroke-width: 1.5;
+}
+
+.annotation text {
+  fill: #eee;
+  font-size: 20px;
+  letter-spacing: 0.01em;
+}
+
+.peak-annotation text {
+  font-size: 15px;
+}
+
+.bedtime-marker text {
+  font-size: 16px;
+}
+
+.annotation .annotation-muted {
+  fill: #777;
+}
+
+.bedtime-marker .bedtime-handle {
+  fill: #bdbdbd;
+  stroke: #0b0b0b;
+  stroke-width: 1.5;
+}
+
+.bedtime-marker.is-active line,
+.bedtime-marker.is-active text {
+  stroke: var(--blue);
+  fill: var(--blue);
+}
+
+.bedtime-marker.is-active .bedtime-handle {
+  fill: var(--blue);
+}
+
+.axis,
+.tick {
+  stroke: #424242;
+  stroke-width: 1.5;
+}
+
+.time-label {
+  fill: #454545;
+  font-size: 17px;
+}
+
+.intake-marker line {
+  stroke: #454545;
+  stroke-width: 1;
+  stroke-dasharray: 3 6;
+}
+
+.intake-marker .marker-center {
+  stroke: none;
+}
+
+.intake-marker[data-beverage='coffee'] .marker-center {
+  fill: #080808;
+}
+
+.intake-marker[data-beverage='mate'] .marker-center {
+  fill: #49a866;
+}
+
+.intake-marker[data-beverage='tea'] .marker-center {
+  fill: #a66b3d;
+}
+
+.intake-marker .marker-ring {
+  fill: none;
+  stroke: #f0f0f0;
+  stroke-width: 2;
+}
+
+.intake-marker .active-halo {
+  fill: var(--blue);
+  opacity: 0.42;
+  stroke: none;
+}
+
+.selected-marker line {
+  stroke: var(--white);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 5;
+}
+
+.selected-marker text {
+  fill: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.selected-marker.is-active line,
+.selected-marker.is-active text {
+  stroke: var(--blue);
+  fill: var(--blue);
+}
+
+.chart-hit-area {
+  fill: transparent;
+  cursor: crosshair;
+  outline: none;
+  touch-action: none;
+}
+
+.chart-hit-area:focus-visible {
+  stroke: #348cff;
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+
+.bedtime-hit-area {
+  fill: transparent;
+  cursor: ew-resize;
+  outline: none;
+  touch-action: none;
+}
+
+.bedtime-hit-area:focus-visible {
+  stroke: var(--blue);
+  stroke-width: 1;
+  stroke-dasharray: 4 6;
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: #515151;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+}
+
+@media (max-width: 700px) {
+  .dashboard {
+    min-height: 100svh;
+    padding: 20px 12px 28px;
+  }
+
+  .summary h1 {
+    font-size: clamp(14px, 4.2vw, 19px);
+  }
+
+  .summary p {
+    font-size: clamp(8px, calc(3vw - 2px), 12px);
+  }
+
+  .beverage-picker {
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 10px;
+    font-size: 12px;
+  }
+
+  .beverage-picker select {
+    min-width: 90px;
+    padding: 5px 8px;
+  }
+
+  .beverage-setting select {
+    min-width: 54px;
+  }
+
+  .beverage-setting input {
+    width: 66px;
+    padding: 5px 6px;
+  }
+
+  .beverage-dose {
+    font-size: 10px;
+  }
+
+  .beverage-legend {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .timeline {
+    margin-bottom: auto;
+    padding-top: 42px;
+  }
+
+  .chart {
+    min-height: 400px;
+  }
+
+  .annotation text {
+    font-size: 16px;
+  }
+
+  .peak-annotation text {
+    font-size: 11px;
+  }
+
+  .bedtime-marker text {
+    font-size: 12px;
+  }
+
+  .selected-marker text {
+    font-size: 17px;
+  }
+
+  .reference-label {
+    font-size: 13px;
+  }
+
+  .time-label {
+    font-size: 14px;
+  }
+
+  .hint {
+    margin-top: 0;
+    font-size: 9px;
+  }
+}
